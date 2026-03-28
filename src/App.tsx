@@ -1,4 +1,10 @@
 import { BrowserRouter as Router } from 'react-router-dom'
+import { Header } from './components/Header'
+import { Hero } from './components/Hero'
+import { About } from './components/About'
+import { Projects } from './components/Projects'
+import { Contact } from './components/Contact'
+import { Footer } from './components/Footer'
 
 /**
  * 应用根组件
@@ -7,24 +13,24 @@ import { BrowserRouter as Router } from 'react-router-dom'
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-[#0a0a0a]">
         {/* Header 组件 - 导航栏 */}
-        {/* TODO: 添加 Header 组件 */}
+        <Header />
 
         {/* Hero 组件 - 首页首屏 */}
-        {/* TODO: 添加 Hero 组件 */}
+        <Hero />
 
         {/* About 组件 - 个人介绍 */}
-        {/* TODO: 添加 About 组件 */}
+        <About />
 
         {/* Projects 组件 - 项目展示 */}
-        {/* TODO: 添加 Projects 组件 */}
+        <Projects />
 
         {/* Contact 组件 - 联系方式 */}
-        {/* TODO: 添加 Contact 组件 */}
+        <Contact />
 
         {/* Footer 组件 - 页脚 */}
-        {/* TODO: 添加 Footer 组件 */}
+        <Footer />
 
         {/* 预留 Blog 路由位置 */}
         {/* TODO: 后续添加 /blog 路由 */}
