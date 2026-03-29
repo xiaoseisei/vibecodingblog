@@ -27,6 +27,7 @@ export function Header() {
     { name: '首页', href: '#home' },
     { name: '关于', href: '#about' },
     { name: '项目', href: '#projects' },
+    { name: '博客', href: '#blog' },
     { name: '联系', href: '#contact' },
   ]
 

@@ -28,13 +28,13 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     id: 2,
-    name: '前端框架',
+    name: '嵌入式',
     icon: 'Layout',
     skills: [
-      'React',
-      'Next.js',
-      'Vue.js',
-      'Tailwind CSS',
+      'Linux',
+      'ESP32',
+      'STM32',
+      '硬件设计',
     ]
   },
   {

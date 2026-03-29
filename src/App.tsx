@@ -4,6 +4,7 @@ import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { About } from './components/About'
 import { Projects } from './components/Projects'
+import { BlogList } from './components/BlogList'
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
 
@@ -31,14 +32,14 @@ function App() {
           {/* Projects 组件 - 项目展示 */}
           <Projects />
 
+          {/* BlogList 组件 - 博客文章列表（混合外部链接和本地文章） */}
+          <BlogList />
+
           {/* Contact 组件 - 联系方式 */}
           <Contact />
 
           {/* Footer 组件 - 页脚 */}
           <Footer />
-
-          {/* 预留 Blog 路由位置 */}
-          {/* TODO: 后续添加 /blog 路由 */}
         </div>
       </ThemeProvider>
     </Router>
