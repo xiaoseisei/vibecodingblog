@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "routes": [
+    {
+      "type": "rewrite",
+      "paths": [
+        {
+          "match": "/*",
+          "type": "wildcard"
+        }
+      ],
+      "target": "/index.html",
+      "status": 200
+    }
+  ]
+}
