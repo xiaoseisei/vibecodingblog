@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Menu, X, Sun, Moon } from 'lucide-react'
+import { useTheme } from '../context/ThemeContext'
 
 /**
  * 导航栏组件
- * 包含导航链接和移动端菜单
+ * 包含导航链接、移动端菜单和主题切换按钮
  * 滚动时显示玻璃态背景效果
  */
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { theme, toggleTheme } = useTheme()
 
   // 监听滚动事件
   useEffect(() => {
@@ -54,20 +57,71 @@ export function Header() {
             <button
               key={link.name}
               onClick={() => scrollToSection(link.href)}
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-gray-300 hover:text-white transition-colors dark:text-gray-300 dark:hover:text-white text-gray-600 hover:text-gray-900"
             >
               {link.name}
             </button>
           ))}
+
+          {/* 主题切换按钮 */}
+          <motion.button
+            onClick={toggleTheme}
+            className="w-10 h-10 rounded-full glass flex items-center justify-center hover:scale-110 transition-transform"
+            aria-label="切换主题"
+            whileTap={{ scale: 0.9 }}
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={theme}
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+              >
+                {theme === 'dark' ? (
+                  <Sun size={18} className="text-yellow-400" />
+                ) : (
+                  <Moon size={18} className="text-indigo-600" />
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </motion.button>
         </nav>
 
-        {/* 移动端菜单按钮 */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* 移动端菜单按钮和主题切换 */}
+        <div className="md:hidden flex items-center gap-3">
+          {/* 移动端主题切换按钮 */}
+          <motion.button
+            onClick={toggleTheme}
+            className="w-10 h-10 rounded-full glass flex items-center justify-center"
+            aria-label="切换主题"
+            whileTap={{ scale: 0.9 }}
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={theme}
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+              >
+                {theme === 'dark' ? (
+                  <Sun size={18} className="text-yellow-400" />
+                ) : (
+                  <Moon size={18} className="text-indigo-600" />
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </motion.button>
+
+          {/* 移动端菜单按钮 */}
+          <button
+            className="text-white dark:text-white text-gray-900"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* 移动端菜单 */}
@@ -77,7 +131,7 @@ export function Header() {
             <button
               key={link.name}
               onClick={() => scrollToSection(link.href)}
-              className="block w-full text-left py-2 text-gray-300 hover:text-white transition-colors"
+              className="block w-full text-left py-2 text-gray-300 hover:text-white transition-colors dark:text-gray-300 dark:hover:text-white text-gray-600 hover:text-gray-900"
             >
               {link.name}
             </button>

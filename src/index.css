@@ -2,23 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 全局深色主题样式 */
+/* 主题过渡效果 - 应用到所有元素 */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* 全局主题样式 */
 @layer base {
   body {
-    @apply bg-[#0a0a0a] text-white antialiased;
+    @apply antialiased;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
   }
 
   html {
     scroll-behavior: smooth;
   }
+
+  /* 深色主题（默认） */
+  html:not(.light) body {
+    @apply bg-[#0a0a0a] text-white;
+  }
+
+  /* 浅色主题 */
+  html.light body {
+    @apply bg-gray-50 text-gray-900;
+  }
 }
 
 /* 自定义工具类 */
 @layer utilities {
-  /* 玻璃态效果 */
-  .glass {
+  /* 深色主题玻璃态效果 */
+  html:not(.light) .glass {
     @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+
+  /* 浅色主题玻璃态效果 */
+  html.light .glass {
+    @apply backdrop-blur-md bg-black/5 border border-gray-200;
   }
 
   /* 渐变文字 - indigo -> purple -> pink */
@@ -29,5 +49,23 @@
   /* 渐变背景 */
   .gradient-bg {
     @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
+  }
+
+  /* 深色主题文字颜色 */
+  html:not(.light) .text-primary {
+    @apply text-white;
+  }
+
+  html:not(.light) .text-secondary {
+    @apply text-gray-400;
+  }
+
+  /* 浅色主题文字颜色 */
+  html.light .text-primary {
+    @apply text-gray-900;
+  }
+
+  html.light .text-secondary {
+    @apply text-gray-600;
   }
 }
