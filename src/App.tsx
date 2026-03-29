@@ -11,12 +11,14 @@ import { Footer } from './components/Footer'
  * 应用根组件
  * 负责组织页面整体结构和路由配置
  * 使用 ThemeProvider 包裹以支持全局主题切换
+ * 使用 CSS 变量主题系统实现平滑过渡效果
  */
 function App() {
   return (
     <Router>
       <ThemeProvider>
-        <div className="min-h-screen">
+        {/* 使用主题 CSS 变量：bg-theme-bg 和 text-theme-text */}
+        <div className="min-h-screen bg-theme-bg text-theme-text">
           {/* Header 组件 - 导航栏（含主题切换） */}
           <Header />
 

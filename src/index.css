@@ -2,43 +2,95 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 主题过渡效果 - 应用到所有元素 */
-* {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-}
+/* ============================================
+   CSS 变量主题系统
+   支持多主题扩展：light | dark | forest | ocean
+   ============================================ */
 
-/* 全局主题样式 */
 @layer base {
+  /* 默认主题 (Light) */
+  :root {
+    /* 主色调 */
+    --bg-main: #ffffff;
+    --text-main: #1e293b;
+    --card-bg: #f8fafc;
+    --border-color: #e2e8f0;
+
+    /* 次要颜色 */
+    --bg-secondary: #f1f5f9;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+
+    /* 玻璃态效果 */
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(226, 232, 240, 0.8);
+  }
+
+  /* 深色主题 */
+  .dark {
+    --bg-main: #0a0a0a;
+    --text-main: #f1f5f9;
+    --card-bg: #111111;
+    --border-color: #262626;
+
+    /* 次要颜色 */
+    --bg-secondary: #171717;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+
+    /* 玻璃态效果 */
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+  }
+
+  /* 预留：森林主题 (未来扩展)
+  .theme-forest {
+    --bg-main: #0a1f0a;
+    --text-main: #f0fdf4;
+    --card-bg: #142814;
+    --border-color: #166534;
+  }
+  */
+
+  /* 预留：海洋主题 (未来扩展)
+  .theme-ocean {
+    --bg-main: #0a1628;
+    --text-main: #f0f9ff;
+    --card-bg: #0f2744;
+    --border-color: #075985;
+  }
+  */
+
+  /* 全局基础样式 */
+  :root {
+    /* 主题颜色过渡效果 */
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
   body {
     @apply antialiased;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
   }
 
   html {
     scroll-behavior: smooth;
   }
-
-  /* 深色主题（默认） */
-  html:not(.light) body {
-    @apply bg-[#0a0a0a] text-white;
-  }
-
-  /* 浅色主题 */
-  html.light body {
-    @apply bg-gray-50 text-gray-900;
-  }
 }
 
-/* 自定义工具类 */
-@layer utilities {
-  /* 深色主题玻璃态效果 */
-  html:not(.light) .glass {
-    @apply backdrop-blur-md bg-white/10 border border-white/20;
-  }
+/* ============================================
+   自定义工具类
+   ============================================ */
 
-  /* 浅色主题玻璃态效果 */
-  html.light .glass {
-    @apply backdrop-blur-md bg-black/5 border border-gray-200;
+@layer utilities {
+  /* 玻璃态效果 - 使用 CSS 变量 */
+  .glass {
+    backdrop-filter: blur(12px);
+    background-color: var(--glass-bg);
+    border: 1px solid var(--glass-border);
   }
 
   /* 渐变文字 - indigo -> purple -> pink */
@@ -49,23 +101,5 @@
   /* 渐变背景 */
   .gradient-bg {
     @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
-  }
-
-  /* 深色主题文字颜色 */
-  html:not(.light) .text-primary {
-    @apply text-white;
-  }
-
-  html:not(.light) .text-secondary {
-    @apply text-gray-400;
-  }
-
-  /* 浅色主题文字颜色 */
-  html.light .text-primary {
-    @apply text-gray-900;
-  }
-
-  html.light .text-secondary {
-    @apply text-gray-600;
   }
 }

@@ -57,7 +57,7 @@ export function Header() {
             <button
               key={link.name}
               onClick={() => scrollToSection(link.href)}
-              className="text-gray-300 hover:text-white transition-colors dark:text-gray-300 dark:hover:text-white text-gray-600 hover:text-gray-900"
+              className="text-theme-text-secondary hover:text-theme-text transition-colors"
             >
               {link.name}
             </button>
@@ -116,7 +116,7 @@ export function Header() {
 
           {/* 移动端菜单按钮 */}
           <button
-            className="text-white dark:text-white text-gray-900"
+            className="text-theme-text"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -131,7 +131,7 @@ export function Header() {
             <button
               key={link.name}
               onClick={() => scrollToSection(link.href)}
-              className="block w-full text-left py-2 text-gray-300 hover:text-white transition-colors dark:text-gray-300 dark:hover:text-white text-gray-600 hover:text-gray-900"
+              className="block w-full text-left py-2 text-theme-text-secondary hover:text-theme-text transition-colors"
             >
               {link.name}
             </button>
