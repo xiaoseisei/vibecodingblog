@@ -61,7 +61,7 @@ export function Contact() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="gradient-text">联系我</span>
           </h2>
-          <p className="text-gray-400 text-lg">有项目合作？随时联系我！</p>
+          <p className="text-theme-text-secondary text-lg">有项目合作？随时联系我！</p>
         </motion.div>
 
         {/* 联系卡片 */}
@@ -85,9 +85,9 @@ export function Contact() {
                     <Icon size={24} className="text-white" />
                   </div>
                   <div>
-                    <h3 className="text-sm text-gray-400 mb-1">{info.label}</h3>
-                    <p className="text-lg font-semibold text-white">{info.value}</p>
-                    <p className="text-sm text-gray-500">{info.description}</p>
+                    <h3 className="text-sm text-theme-text-secondary mb-1">{info.label}</h3>
+                    <p className="text-lg font-semibold text-theme-text">{info.value}</p>
+                    <p className="text-sm text-theme-text-muted">{info.description}</p>
                   </div>
                 </div>
               </motion.a>
@@ -103,7 +103,7 @@ export function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h3 className="text-xl font-bold text-white mb-6 text-center">
+          <h3 className="text-xl font-bold text-theme-text mb-6 text-center">
             关注我的社交媒体
           </h3>
           <div className="flex justify-center gap-4">
@@ -115,7 +115,7 @@ export function Contact() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-14 h-14 rounded-full glass flex items-center justify-center text-gray-400 hover:text-white transition-all ${social.color} hover:scale-110`}
+                  className={`w-14 h-14 rounded-full glass flex items-center justify-center text-theme-text-secondary hover:text-theme-text transition-all ${social.color} hover:scale-110`}
                   aria-label={social.name}
                 >
                   <Icon size={24} />
@@ -133,7 +133,7 @@ export function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-gray-400 mb-6">
+          <p className="text-theme-text-secondary mb-6">
             我对新的项目和合作机会持开放态度
           </p>
           <a

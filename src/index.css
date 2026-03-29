@@ -10,16 +10,16 @@
 @layer base {
   /* 默认主题 (Light) */
   :root {
-    /* 主色调 */
-    --bg-main: #ffffff;
-    --text-main: #000000;
-    --card-bg: #f8fafc;
-    --border-color: #e2e8f0;
+    /* 主色调 - 优化对比度 */
+    --bg-main: #f8fafc;              /* 略带灰蓝的背景，减少视觉疲劳 */
+    --text-main: #0f172a;            /* 主文字色，深色 Slate */
+    --card-bg: #ffffff;              /* 卡片使用纯白背景 */
+    --border-color: #e2e8f0;         /* 边框保持浅色 */
 
     /* 次要颜色 */
     --bg-secondary: #f1f5f9;
-    --text-secondary: #64748b;
-    --text-muted: #94a3b8;
+    --text-secondary: #475569;       /* 次要文字色，提高对比度 */
+    --text-muted: #64748b;           /* 弱化文字色 */
 
     /* 玻璃态效果 */
     --glass-bg: rgba(255, 255, 255, 0.8);
@@ -71,6 +71,8 @@
 
   body {
     @apply antialiased;
+    -webkit-font-smoothing: antialiased;  /* 确保 macOS 渲染清晰 */
+    -moz-osx-font-smoothing: grayscale;   /* 确保 Firefox 渲染清晰 */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     background-color: var(--bg-main);
     color: var(--text-main);
@@ -78,6 +80,22 @@
 
   html {
     scroll-behavior: smooth;
+  }
+
+  /* 标题样式 - 浅色模式下使用深色 Slate 增加视觉权重 */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-main);
+    font-weight: 700;
+  }
+
+  /* 浅色模式下的标题增强 */
+  :root h1, :root h2, :root h3 {
+    color: #0f172a;  /* Slate-900，最高对比度 */
+  }
+
+  /* 深色模式保持原样 */
+  .dark h1, .dark h2, .dark h3 {
+    color: #f8fafc;
   }
 }
 

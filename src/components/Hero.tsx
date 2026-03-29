@@ -46,7 +46,7 @@ export function Hero() {
         {/* 头像/占位图 */}
         <motion.div variants={itemVariants} className="mb-8">
           <div className="w-32 h-32 mx-auto rounded-full gradient-bg p-1">
-            <div className="w-full h-full rounded-full bg-[#0a0a0a] flex items-center justify-center">
+            <div className="w-full h-full rounded-full bg-theme-card flex items-center justify-center">
               <span className="text-5xl">👨‍💻</span>
             </div>
           </div>
@@ -56,16 +56,16 @@ export function Hero() {
         <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-bold mb-6">
           <span className="gradient-text">Hello, I'm</span>
           <br />
-          <span className="text-white">Developer</span>
+          <span className="text-theme-text">Developer</span>
         </motion.h1>
 
         {/* 副标题/简介 */}
-        <motion.p variants={itemVariants} className="text-xl md:text-2xl text-gray-400 mb-8">
+        <motion.p variants={itemVariants} className="text-xl md:text-2xl text-theme-text-secondary mb-8">
           全栈开发者 | 开源爱好者 | 终身学习者
         </motion.p>
 
         {/* 描述 */}
-        <motion.p variants={itemVariants} className="text-lg text-gray-500 mb-12 max-w-2xl mx-auto">
+        <motion.p variants={itemVariants} className="text-lg text-theme-text-muted mb-12 max-w-2xl mx-auto">
           热衷于构建优雅、高效的应用程序。专注于 React、TypeScript 和现代 Web 技术。
         </motion.p>
 
@@ -79,7 +79,7 @@ export function Hero() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-400 hover:text-white hover:scale-110 transition-all"
+                className="w-12 h-12 rounded-full glass flex items-center justify-center text-theme-text-muted hover:text-theme-text hover:scale-110 transition-all"
                 aria-label={link.label}
               >
                 <Icon size={20} />
@@ -95,7 +95,7 @@ export function Hero() {
         >
           <a
             href="#about"
-            className="text-gray-500 hover:text-white transition-colors"
+            className="text-theme-text-muted hover:text-theme-text transition-colors"
           >
             <svg
               className="w-6 h-6 mx-auto"

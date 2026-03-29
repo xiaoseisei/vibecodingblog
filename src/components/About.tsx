@@ -48,7 +48,7 @@ export function About() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="gradient-text">关于我</span>
           </h2>
-          <p className="text-gray-400 text-lg">了解更多关于我的背景和技能</p>
+          <p className="text-theme-text-secondary text-lg">了解更多关于我的背景和技能</p>
         </motion.div>
 
         {/* 个人介绍 */}
@@ -59,16 +59,16 @@ export function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h3 className="text-2xl font-bold text-white mb-4">👋 你好！</h3>
-          <p className="text-gray-300 leading-relaxed mb-4">
+          <h3 className="text-2xl font-bold text-theme-text mb-4">👋 你好！</h3>
+          <p className="text-theme-text-secondary leading-relaxed mb-4">
             我是一名充满热情的全栈开发者，拥有多年的软件开发经验。
             我热爱探索新技术，并将其应用到实际项目中。
           </p>
-          <p className="text-gray-300 leading-relaxed mb-4">
+          <p className="text-theme-text-secondary leading-relaxed mb-4">
             我的技术栈涵盖前端、后端以及 DevOps。
             我相信优秀的代码不仅要能运行，还要易于维护和扩展。
           </p>
-          <p className="text-gray-300 leading-relaxed">
+          <p className="text-theme-text-secondary leading-relaxed">
             在工作之余，我喜欢参与开源项目，分享技术知识，
             并通过写博客来记录我的学习旅程。
           </p>
@@ -93,7 +93,7 @@ export function About() {
                 <div className="text-indigo-400">
                   {getIcon(category.icon)}
                 </div>
-                <h3 className="text-xl font-bold text-white">{category.name}</h3>
+                <h3 className="text-xl font-bold text-theme-text">{category.name}</h3>
               </div>
 
               {/* 技能标签 */}
